@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6934b352d86de0f4e176b0516c4b8c55474f0f87")]
 [assembly: System.Reflection.AssemblyProductAttribute("bapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
