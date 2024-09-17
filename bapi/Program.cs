@@ -1,16 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using bapi.Models; 
+using bapi.Models;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// services to the container.
+// Add services to the container.
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     // Prevent circular references in JSON serialization
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-    // Optional: Pretty-print the JSON output
     options.JsonSerializerOptions.WriteIndented = true;
 });
 
@@ -18,33 +17,28 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddDbContext<BugTrackingContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 0)) 
+        new MySqlServerVersion(new Version(8, 0, 0))
     )
 );
 
-// session support
-builder.Services.AddDistributedMemoryCache(); // Required for session storage
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);  // Session timeout after 30 minutes
-    options.Cookie.HttpOnly = true;  // Prevent JavaScript from accessing the session cookie
-    options.Cookie.IsEssential = true;  // Ensure the session cookie is essential (GDPR compliant)
-});
-
-// CORS policy for React app
+// Add CORS policy for your React app
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp", 
+    options.AddPolicy("AllowReactApp",
         policyBuilder =>
         {
-            policyBuilder.WithOrigins("http://localhost:5174", "http://localhost:5180") // Your React app URL
-                         .AllowAnyHeader()
-                         .AllowAnyMethod()
-                         .AllowCredentials(); // Allow cookies or credentials
+            policyBuilder.WithOrigins(
+                "https://onebug.netlify.app", 
+                "http://localhost:5174",    
+                "http://localhost:5180"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials(); 
         });
 });
 
-// Swagger services for API documentation
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -70,7 +64,9 @@ builder.Services.AddSwaggerGen(c =>
     }
 });
 
-// Configure Kestrel to listen on both HTTP and HTTPS
+// Optionally configure Kestrel if you have specific port requirements
+// Commented out as per our previous suggestion
+/*
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(5180); // HTTP
@@ -79,31 +75,31 @@ builder.WebHost.ConfigureKestrel(options =>
         listenOptions.UseHttps(); // HTTPS
     });
 });
+*/
 
 var app = builder.Build();
 
-// Apply CORS policy before any other middleware
-app.UseCors("AllowReactApp");
-app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 
+// Apply CORS policy before authorization
+app.UseCors("AllowReactApp");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "BugAPI v1");
-        c.RoutePrefix = string.Empty; // Serve Swagger UI at the root
+        c.RoutePrefix = "swagger"; 
     });
 }
 
-app.UseHttpsRedirection();  // Redirect HTTP to HTTPS
 
-app.UseSession();  // Enable session middleware
 
 app.UseAuthorization();
 
+// Map controllers
 app.MapControllers();
 
 app.Run();
