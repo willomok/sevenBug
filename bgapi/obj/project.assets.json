@@ -5335,11 +5335,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/willomokeowa/Workspace/backend playground/sevenBug/bapi/bapi.csproj",
+      "projectUniqueName": "/Users/willomokeowa/Workspace/Final/sevenBug-1/bapi/bapi.csproj",
       "projectName": "bapi",
-      "projectPath": "/Users/willomokeowa/Workspace/backend playground/sevenBug/bapi/bapi.csproj",
+      "projectPath": "/Users/willomokeowa/Workspace/Final/sevenBug-1/bapi/bapi.csproj",
       "packagesPath": "/Users/willomokeowa/.nuget/packages/",
-      "outputPath": "/Users/willomokeowa/Workspace/backend playground/sevenBug/bapi/obj/",
+      "outputPath": "/Users/willomokeowa/Workspace/Final/sevenBug-1/bapi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/willomokeowa/.nuget/NuGet/NuGet.Config"
