@@ -1,0 +1,144 @@
+.home-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0; 
+}
+
+h1 {
+    text-align: left;
+}
+
+
+section h3 {
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+section label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #e0e0e0; 
+}
+
+section select {
+    margin: 10px 20px 20px 0;
+    padding: 8px;
+    border: 1px solid #444; 
+    background-color: #2b2b2b; 
+    color: #e0e0e0; 
+    border-radius: 5px;
+}
+
+
+.bugs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color:  #333;
+}
+
+.bugs-table th, .bugs-table td {
+    border: 1px solid #444; 
+    padding: 12px 15px;
+    text-align: left;
+    color: #e0e0e0; 
+}
+
+.bugs-table th {
+    background-color: darkslategray;
+    color: white;
+    font-weight: bold;
+}
+
+.bugs-table tr:nth-child(even) {
+    background-color: #2b2b2b; 
+}
+
+.bugs-table tr:hover {
+    background-color: #333; 
+}
+
+
+.bugs-table td button {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bugs-table td button:hover {
+    background-color: #218838; 
+}
+
+@media (max-width: 768px) {
+    .bugs-table, .bugs-table thead, .bugs-table tbody, .bugs-table th, .bugs-table td, .bugs-table tr {
+      display: block;
+    }
+
+    .bugs-table th {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    .bugs-table tr {
+      margin-bottom: 10px;
+    }
+
+    .bugs-table td {
+      padding-left: 50%;
+      position: relative;
+      text-align: right;
+    }
+
+    .bugs-table td:before {
+      position: absolute;
+      left: 10px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold;
+    }
+
+   
+    .bugs-table td:nth-of-type(1):before { content: "ID"; }
+    .bugs-table td:nth-of-type(2):before { content: "Title"; }
+    .bugs-table td:nth-of-type(3):before { content: "Description"; }
+    .bugs-table td:nth-of-type(4):before { content: "Created Date"; }
+    .bugs-table td:nth-of-type(5):before { content: "Resolved Date"; }
+    .bugs-table td:nth-of-type(6):before { content: "Status"; }
+    .bugs-table td:nth-of-type(7):before { content: "Priority"; }
+    .bugs-table td:nth-of-type(8):before { content: "Assigned User (ID)"; }
+    .bugs-table td:nth-of-type(9):before { content: "Actions"; }
+}
+
+
+.status-open {
+    color: green !important;
+  }
+  
+  .status-closed {
+    color: red !important;
+  }
+  
+  .priority-high {
+    color: red !important;
+  }
+  
+  .priority-medium {
+    color: orange !important;
+  }
+  
+  .priority-low {
+    color: green !important;
+  }
+  

@@ -1,0 +1,150 @@
+/* Profile container */
+.profile-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Profile form and bug form styling */
+.profile-container .update-profile-form, 
+.profile-container .profile-create-bug {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields, text areas, and selects styling */
+.profile-container .update-profile-form input, 
+.profile-container .profile-create-bug input, 
+.profile-container .profile-create-bug select, 
+.profile-container .profile-create-bug textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Label styling */
+.profile-container .update-profile-form label, 
+.profile-container .profile-create-bug label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Buttons styling */
+.profile-container .update-profile-form button, 
+.profile-container .profile-create-bug button {
+    background-color: #007BFF;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 15px; /* Adds spacing below each button */
+}
+
+/* Button hover effect */
+.profile-container .update-profile-form button:hover, 
+.profile-container .profile-create-bug button:hover {
+    background-color: darkslategray;
+}
+
+/* Adding spacing between buttons */
+.profile-container .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile-container .button-group button {
+    width: 48%; /* Ensure buttons are equally sized and leave space between them */
+    margin-bottom: 0; /* Remove extra margin in the button group */
+}
+
+/* Bugs table styling */
+.profile-container .bugs-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container .bugs-table th, 
+.profile-container .bugs-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.profile-container .bugs-table th {
+    background-color: darkslategrey;
+    font-weight: bold;
+}
+
+.profile-container .bugs-table tr:hover {
+    background-color: darkslategray;
+}
+
+/* Button styles inside the bugs table */
+.profile-container .bugs-table button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container .bugs-table button:hover {
+    background-color: #218838;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+    .profile-container .bugs-table, 
+    .profile-container .bugs-table thead, 
+    .profile-container .bugs-table tbody, 
+    .profile-container .bugs-table th, 
+    .profile-container .bugs-table td, 
+    .profile-container .bugs-table tr {
+        display: block;
+    }
+
+    .profile-container .bugs-table th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .profile-container .bugs-table tr {
+        margin-bottom: 10px;
+    }
+
+    .profile-container .bugs-table td {
+        padding-left: 50%;
+        position: relative;
+        text-align: right;
+    }
+
+    .profile-container .bugs-table td:before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+}

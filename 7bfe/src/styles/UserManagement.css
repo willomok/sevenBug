@@ -1,0 +1,131 @@
+.user-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.add-user-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.users-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+.users-table th, .users-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.users-table th {
+    background-color: darkslategray;
+    color: white;
+    font-weight: bold;
+}
+
+
+.users-table tr:hover {
+    background-color: darkslategrey;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .users-table, .users-table thead, .users-table tbody, .users-table th, .users-table td, .users-table tr {
+        display: block;
+    }
+
+    .users-table th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .users-table tr {
+        margin-bottom: 10px;
+    }
+
+    .users-table td {
+        padding-left: 50%;
+        position: relative;
+        text-align: right;
+    }
+
+    .users-table td:before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .users-table td:nth-of-type(1):before { content: "Username"; }
+    .users-table td:nth-of-type(2):before { content: "Name"; }
+    .users-table td:nth-of-type(3):before { content: "Email"; }
+    .users-table td:nth-of-type(4):before { content: "Actions"; }
+}
